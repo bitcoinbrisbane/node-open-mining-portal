@@ -161,6 +161,11 @@ a good pool operator. For starters be sure to read:
 
 #### 1) Downloading & Installing
 
+Using NVM
+```
+nvm install 8.17.0
+```
+
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
