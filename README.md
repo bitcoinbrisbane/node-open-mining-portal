@@ -1,20 +1,26 @@
-## This repo is looking for maintainers! Please reach out if interested.
+## Install core
 
---------
+```
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt update
+sudo apt install bitcoind
+```
 
+## Core config
 
-# NOMP ![NOMP Logo](http://zone117x.github.io/node-open-mining-portal/logo.svg "NOMP Logo")
-#### Node Open Mining Portal
+`sudo nano ~/.bitcoin.conf`
 
-This portal is an extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool written
-entirely in Node.js. It contains a stratum poolserver; reward/payment/share processor; and a (*not yet completed*)
-responsive user-friendly front-end website featuring mining instructions, in-depth live statistics, and an admin center.
-
-#### Production Usage Notice
-This is beta software. All of the following are things that can change and break an existing NOMP setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data.
-
-#### Paid Solution
-Usage of this software requires abilities with sysadmin, database admin, coin daemons, and sometimes a bit of programming. Running a production pool can literally be more work than a full-time job. 
+```
+mainnet=1
+server=1                              # need RPC for btcpay.
+rpcbind=0.0.0.0                     # loopback is default for 0.18.0 but no harm making sure.
+whitelist=127.0.0.1                   # for nbxplorer.
+rpcallowip=0.0.0.0               # loopback is default but again no harm.
+disablewallet=1                       # btcpay does not host a bitcoin wallet.
+rpcuser=bitcoinbrisbane
+rpcpassword=test
+prune=1000
+```
 
 
 **Coin switching & auto-exchanging for payouts in BTC/LTC** to miners is a feature that very likely will not be included in this project. 
